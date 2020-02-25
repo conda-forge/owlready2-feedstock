@@ -23,10 +23,13 @@ requirements:
     - cython
   run:
     - python
+    - pip
 
 test:
   imports:
     - owlready2
+  commands:
+    - pip check
 
 about:
   home: https://bitbucket.org/jibalamy/owlready2
