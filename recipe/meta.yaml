@@ -23,6 +23,7 @@ requirements:
     - cython
   run:
     - python
+    - pip
 
 test:
   imports:
