@@ -1,5 +1,5 @@
 {% set name = "owlready2" %}
-{% set version = "0.26" %}
+{% set version = "0.27" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/O/Owlready2/Owlready2-{{ version }}.tar.gz
-  sha256: 9d61b717580856089ba1d56aafc67364fce361c7aceb1e5d824efb5bf5a6f20b
+  sha256: 88e0c1ecbcb4b526f1b86abb4042b2756d1084139337b010fd7203d13151eade
 
 build:
   number: 0
