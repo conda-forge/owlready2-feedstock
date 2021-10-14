@@ -24,6 +24,7 @@ requirements:
   run:
     - python
     - pip
+    - colorama
 
 test:
   imports:
