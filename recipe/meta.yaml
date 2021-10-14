@@ -24,14 +24,12 @@ requirements:
   run:
     - python
     - pip
-    - tqdm
-    - colorama
 
 test:
   imports:
     - owlready2
   commands:
-    - pip check
+    - pip check  # [not win]
 
 about:
   home: https://bitbucket.org/jibalamy/owlready2
