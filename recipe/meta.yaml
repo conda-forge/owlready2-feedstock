@@ -10,9 +10,9 @@ source:
   sha256: b19aa9b009d5f1f3f312f535bd29a951df67056c852076ec0795d6ef0d23e67c
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [py<=36 and win]
+  skip: true  # [win]
 
 requirements:
   build:
@@ -33,8 +33,7 @@ test:
 
 about:
   home: https://bitbucket.org/jibalamy/owlready2
-  license: LGPL-3.0
-  license_family: GPL
+  license: LGPL-3.0-only
   license_file: LICENSE.txt
   summary: Owlready2 is a module for ontology-oriented programming in Python.
 
