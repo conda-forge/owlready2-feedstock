@@ -20,13 +20,13 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
-    - python >=3.6
+    - python
     - setuptools
     - wheel
     - cython
     - pip
   run:
-    - python >=3.6
+    - python
 
 test:
   imports:
