@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/O/Owlready2/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/owlready2-{{ version }}.tar.gz
   sha256: 44a501ace1bc5b7be1c2f5aa98dd14825c590ce0c5d4e3bc353f458df522dca7
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
 requirements:
   build:
@@ -21,24 +21,26 @@ requirements:
     - {{ compiler('c') }}
   host:
     - python
-    - pip
+    - setuptools
+    - wheel
     - cython
+    - pip
   run:
     - python
-    - pip
 
 test:
   imports:
     - owlready2
   commands:
-    - pip check  # [not win]
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://bitbucket.org/jibalamy/owlready2
   license: LGPL-3.0-only
   license_file: LICENSE.txt
   summary: Owlready2 is a module for ontology-oriented programming in Python.
-
   description: |
     Owlready2 is a module for ontology-oriented programming in Python. 
     It can load OWL 2.0 ontologies as Python objects, modify them, save 
