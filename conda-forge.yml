@@ -1,8 +1,6 @@
 bot:
   automerge: true
   inspection: update-grayskull
-build_platform:
-  osx_arm64: osx_64
 conda_build:
   pkg_format: '2'
 conda_forge_output_validation: true
@@ -10,5 +8,6 @@ github:
   branch_name: main
   tooling_branch_name: main
 provider:
+  osx_arm64: default
   win: azure
 test: native_and_emulated
