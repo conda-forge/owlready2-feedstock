@@ -1,0 +1,59 @@
+schema_version: 1
+
+context:
+  name: owlready2
+  version: "0.51"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/owlready2-${{ version }}.tar.gz
+  sha256: 65adebc79ff6abdd2a0bde8d3aac21c6beed8699bf1e7c849d30eba9c513795e
+
+build:
+  number: 2
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: cython
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+  host:
+    - python
+    - setuptools
+    - wheel
+    - cython
+    - pip
+  run:
+    - python
+
+tests:
+  - python:
+      imports:
+        - owlready2
+      pip_check: true
+
+about:
+  license: LGPL-3.0-only
+  license_file: LICENSE.txt
+  summary: Owlready2 is a module for ontology-oriented programming in Python.
+  description: |
+    Owlready2 is a module for ontology-oriented programming in Python.
+    It can load OWL 2.0 ontologies as Python objects, modify them, save
+    them, and perform reasoning via HermiT. Owlready2 includes an
+    optimized RDF quadstore.
+  homepage: https://bitbucket.org/jibalamy/owlready2
+  repository: https://bitbucket.org/jibalamy/owlready2
+  documentation: http://owlready2.readthedocs.io/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
